@@ -99,7 +99,7 @@ class Pokemon:
             f"  Nature: {self.nature}\n"
             f"  EVs: " + ", ".join([f"{k} {v}" for k, v in self.evs.items() if v > 0]) + "\n"
             f"  IVs: " + ", ".join([f"{k} {v}" for k, v in self.ivs.items() if v < 31]) + "\n"
-            f"  Moves:\n    - " + "\n    - ".join(move.name for move in self.moves) + "\n"
+            f"  Moves:\n    - " + "\n    - ".join(move for move in self.moves) + "\n"
             f"  Stats:\n    - " + "\n    - ".join(f"{k}: {v}" for k, v in self.stats.items())
         )
     
