@@ -1,4 +1,4 @@
 setup
-pycache
+__pycache__
 test.py
 team.txt
