@@ -104,13 +104,13 @@ class Pokemon:
         )
     
 class Move:
-    def __init__(self, name, type, category, power, crit_rate):
+    def __init__(self, name, move_type, category, power, crit_rate):
         self.name = name
-        self.type = type  # e.g. "Electric"
+        self.type = move_type  # e.g. "Electric"
         self.category = category  # "Physical" or "Special"
         self.power = power
-        self.crit_rate = crit_rate #critical hit ratio
+        self.crit_rate = crit_rate # critical hit ratio
 
 
     def __str__(self):
-        return (f"{self.name} ({self.type}) {self.category}: {self.power} ")
+        return f"{self.name} ({self.type}) {self.category}: {self.power} "

@@ -1,7 +1,6 @@
 from pokemon import Pokemon, Move
 import json
 import math
-import random
 
 with open("poke_data/type_chart_gen9.json", "r") as f:
     type_chart = json.load(f)
@@ -36,11 +35,11 @@ def is_immune(move_type, target_types):
     return any(t in TYPE_IMMUNITIES.get(move_type, []) for t in target_types)
 
 def damage_range(attacker, defender, move, type_chart):
-    '''computes min/max considering random factor for pokemon moves'''
+    """Compute the minimum and maximum damage considering Pokémon's
+    random factor (0.85–1.00)."""
     return [
         calculate_damage(attacker, defender, move, type_chart, random_factor=0.85),
-        calculate_damage(attacker, defender, move, type_chart, random_factor=1.0),
-        calculate_damage(attacker, defender, move, type_chart, random_factor=1.5),
+        calculate_damage(attacker, defender, move, type_chart, random_factor=1.0)
     ]
 
 

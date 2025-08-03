@@ -1,3 +1,6 @@
+import copy
+
+
 def parse_pokepaste(text):
     '''takes pokepaste txt file and parses into readable data'''
     team = []
@@ -18,7 +21,7 @@ def parse_pokepaste(text):
         line = line.strip()
         if not line:
             if current["Name"]:
-                team.append(current.copy())
+                team.append(copy.deepcopy(current))
                 current = {
                     "Name": "", "Item": "", "Ability": "", "Level": 50, "Tera Type": "", "Nature": "",
                     "EVs": dict.fromkeys(['HP', 'Atk', 'Def', 'SpA', 'SpD', 'Spe'], 0),
@@ -27,7 +30,7 @@ def parse_pokepaste(text):
                 }
             continue
         if "@" in line:
-            name, item = line.split(" @ ")
+            name, item = line.split("@", 1)
             current["Name"] = name.strip()
             current["Item"] = item.strip()
         elif line.startswith("Ability:"):
